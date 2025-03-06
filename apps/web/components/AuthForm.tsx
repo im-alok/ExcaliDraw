@@ -2,9 +2,9 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { Button } from './ui/button';
-import { Input } from './ui/input';
-import { Separator } from './ui/separator';
+import { Button } from '@repo/ui/button';
+import { Input } from '@repo/ui/input';
+import { Separator } from '@repo/ui/separator';
 import { Github } from 'lucide-react';
 
 interface AuthFormProps {

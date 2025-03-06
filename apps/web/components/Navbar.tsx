@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Button } from './ui/button';
+import { Button } from '@repo/ui/button';
 import { PenTool, ArrowRight } from 'lucide-react';
 
 const Navbar = () => {
@@ -55,7 +55,7 @@ const Navbar = () => {
             </Button>
           </Link>
           <Link href="/signup">
-            <Button className="bg-gradient-to-r from-primary-teal to-primary-purple text-black font-medium px-6 py-5 h-auto rounded-full hover:shadow-[0_0_15px_rgba(15,244,198,0.5)] transition-all duration-300">
+            <Button className="bg-gradient-to-r from-primary-teal to-primary-purple text-black font-medium px-6 py-5 h-auto rounded-full hover:shadow-[0_0_15px_rgba(15,244,198,0.5)] transition-all duration-300 flex ">
               <span>Sign Up</span>
               <ArrowRight className="w-4 h-4 ml-2" />
             </Button>

@@ -1,6 +1,5 @@
 @import "tailwindcss";
-
-@import "tailwindcss";
+@import "@repo/ui/style.css";
 
 @theme {
   /* Container settings */
@@ -239,4 +238,6 @@ background-color: #555; /* Hover color */
 
 
 
-                    
+/* "@tailwindcss/postcss": "^4.0.9", 
+    "postcss": "^8.5.3",
+    "tailwindcss": "^4.0.9" */

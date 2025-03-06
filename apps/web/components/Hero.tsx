@@ -1,5 +1,5 @@
 
-import { Button } from '../components/ui/button';
+import { Button } from '@repo/ui/button';
 import Link from 'next/link';
 import { ArrowRight, CheckCircle, MousePointer, Pencil, Eraser, Square, Circle } from 'lucide-react';
 
@@ -24,7 +24,7 @@ const Hero = () => {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-4 animate-fade-in" style={{ animationDelay: '300ms' }}>
             <Link href="/signup">
-              <Button className="bg-gradient-to-r from-primary-teal to-primary-purple text-black font-medium px-8 py-6 h-auto text-lg rounded-full button-glow">
+              <Button className="bg-gradient-to-r from-primary-teal to-primary-purple text-black font-medium px-8 py-6 h-auto text-lg rounded-full button-glow flex">
                 <span>Get Started Free</span>
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
