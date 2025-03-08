@@ -7,9 +7,8 @@ const page = async ({params}:{params:{roomId:string}}) => {
   const roomId = (await params).roomId
 
   return (
-    <div>
+    <div className=''>
         <Canvas roomId={roomId}/>
-
     </div>
   )
 }
