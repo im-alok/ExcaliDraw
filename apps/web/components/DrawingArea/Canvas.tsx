@@ -51,13 +51,13 @@ const Canvas = ({ roomId }: { roomId: string }) => {
                 ctx?.clearRect(0, 0, canvas.width, canvas.height);
 
                 existingShapes.forEach((shape) => {
-                    if (shape.type === "rect" ) {
+                    if (shape.type === "rect") {
                         ctx!.strokeStyle = "rgba(255,255,255)"
                         ctx?.strokeRect(shape.x, shape.y, shape.width, shape.height);
                     }
-                    if(shape.type === "StraightLine" ){
+                    if (shape.type === "StraightLine") {
                         ctx?.beginPath();
-                        ctx?.moveTo(shape.startX,shape.startY);
+                        ctx?.moveTo(shape.startX, shape.startY);
                         ctx?.lineTo(shape.endX, shape.endY);
                         ctx!.strokeStyle = "rgba(255,255,255)"
                         ctx?.stroke()
@@ -69,7 +69,10 @@ const Canvas = ({ roomId }: { roomId: string }) => {
                 clicked = true
                 startX = e.clientX;
                 startY = e.clientY
+                console.log(startX, startY)
+
             })
+
 
             canvas.addEventListener("mouseup", (e) => {
                 clicked = false;
@@ -110,17 +113,26 @@ const Canvas = ({ roomId }: { roomId: string }) => {
                     }
 
                     if (selectedTool?.current === "StraightLine") {
-                        
-
                         clearCanvas();
                         ctx.beginPath()
-                        ctx.moveTo(startX,startY);
-                        ctx.lineTo(e.clientX,e.clientY)
+                        ctx.moveTo(startX, startY);
+                        ctx.lineTo(e.clientX, e.clientY)
 
-                        ctx.strokeStyle = "rgba(255,255,255";
+                        ctx.strokeStyle = "green";
                         ctx.stroke()
+                    }
 
-                        
+                    if (selectedTool?.current === "pencil") {
+                        // console.log(e.clientX,e.clientY)
+                        ctx.beginPath();
+                        ctx.moveTo(startX, startY);
+                        ctx.lineTo(e.offsetX, e.offsetY);
+                        ctx.strokeStyle = "green";
+                        ctx.lineWidth = 2; 
+                        ctx.lineCap = "round";
+                        ctx.stroke();
+
+                        [startX,startY] = [e.offsetX,e.offsetY]
                     }
 
                 }
@@ -179,6 +191,12 @@ function TopBar({ selectedTool, setTool }: any) {
                     onclick={() => { setTool('rect') }}
                     selectedTool={selectedTool}
                     tool='rect'
+                />
+                <IconButton
+                    icon={<Pencil className='w-4 h-4' />}
+                    onclick={() => { setTool('pencil') }}
+                    selectedTool={selectedTool}
+                    tool='pencil'
                 />
             </div>
         </div>
